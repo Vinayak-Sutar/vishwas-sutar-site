@@ -8,7 +8,7 @@ export const translations = {
     },
     home: {
       title: 'डॉ. विश्वास सुतार',
-      subtitle: 'लेखक, संगीतकार, शिक्षक, समाजसेवक',
+      subtitle: 'लेखक, संगीतकार, शिक्षक, प्रशासकीय अधिकारी, समाजसेवक',
       intro: 'संगीत, शिक्षण, लेखन, व्याख्यान, नवोपक्रम, संशोधन अशा क्षेत्रात सातत्याने सक्रिय',
       contact: 'संपर्क: ९४२०३५३४५२',
       location: 'कोल्हापूर',
@@ -63,6 +63,7 @@ export const translations = {
         awards: {
           title: 'पुरस्कार',
           content: [
+            'कुशल प्रशासन अधिकारी सन्मान - शाहुवाडी तालुका शैक्षणिक व्यासपीठ',
             'राजर्षी छत्रपती शाहू पुरस्कार (जिल्हा परिषद, कोल्हापूर)',
             'स्वररत्न पुरस्कार (मायबोली प्रतिष्ठान, राधानगरी)',
             'ग्रंथ पुरस्कार, संत गाडगे महाराज अध्यासन, कोल्हापूर',
@@ -277,7 +278,7 @@ export const translations = {
     },
     home: {
       title: 'Dr. Vishwas Sutar',
-      subtitle: 'Author, Musician, Educator, Social Worker',
+      subtitle: 'Author, Musician, Teacher, Administrative officer, Social Worker',
       intro: 'Actively engaged in music, education, writing, lecturing, innovation, and research',
       contact: 'Contact: 9420353452',
       location: 'Kolhapur',
@@ -332,6 +333,7 @@ export const translations = {
         awards: {
           title: 'Awards',
           content: [
+            'Kushal Prashasan Adhikari Sanman - Shahuwadi Taluka Shaikshanik Vyaspeeth',
             'Rajarshi Chhatrapati Shahu Award – Zilla Parishad, Kolhapur',
             'Swararatna Award – Maiboli Pratishthan, Radhanagari',
             'Granth Award – Sant Gadge Maharaj Adhyasan, Kolhapur',

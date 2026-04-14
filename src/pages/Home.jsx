@@ -66,7 +66,7 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-xl sm:rounded-2xl"></div>
                   <LazyImage
                     src={fatherImage}
-                    alt={t.home.title}
+                    alt={`${t.home.title} - Author, Musician, Administrative Officer from Kolhapur`}
                     className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] object-cover rounded-xl sm:rounded-2xl shadow-2xl border-4 sm:border-6 md:border-8 border-white transform group-hover:scale-[1.02] transition-transform duration-700"
                   />
                   
@@ -79,7 +79,7 @@ const Home = () => {
                       <div className="flex items-center gap-2 sm:gap-3">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-500 rounded-full animate-pulse flex-shrink-0"></div>
                         <span className="text-xs sm:text-sm font-semibold text-gray-800 tracking-wide whitespace-nowrap">
-                          {language === 'marathi' ? 'लेखक • संगीतकार • शिक्षक' : 'Author • Musician • Educator'}
+                          {language === 'marathi' ? 'लेखक • संगीतकार • प्रशासकीय अधिकारी' : 'Author • Musician • Administrative Officer'}
                         </span>
                       </div>
                     </div>
