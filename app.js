@@ -421,6 +421,9 @@ function renderBooks() {
 
     <div id="modal-mount">${openBook ? renderBookModal(openBook, t) : ''}</div>
   `;
+  // The .reveal fade-in must be re-attached on every re-render, otherwise
+  // freshly-created .reveal elements stay stuck at opacity:0.
+  requestAnimationFrame(setupReveal);
 }
 
 function renderBookModal(mb, t) {
@@ -586,6 +589,7 @@ function renderSamajbhan() {
 
     <div id="lightbox-mount">${samajState.lightbox ? renderLightbox(samajState.lightbox) : ''}</div>
   `;
+  requestAnimationFrame(setupReveal);
 }
 
 function renderLightbox(src) {
