@@ -1,0 +1,723 @@
+/* ==========================================================================
+   Dr. Vishwas Sutar Portfolio — global styles
+   ========================================================================== */
+
+:root {
+  --bg: #F5F6F0;
+  --surface: #FFF;
+  --ink: #202620;
+  --muted: #5D6558;
+  --accent: #2F5D46;
+  --accent2: #94702B;
+  --line: #E0E2D4;
+  --dark: #1B241E;
+  --dark-ink: #ECEFE3;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Mukta', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent2); }
+
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+
+::selection { background: var(--accent); color: #fff; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Layout wrapper ---------- */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px;
+  display: flex; align-items: center; gap: 16px; height: 64px;
+}
+.nav__brand {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 20px; color: var(--ink); white-space: nowrap;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); display: inline-block;
+}
+.nav__spacer { flex: 1; }
+.nav__links {
+  display: flex; align-items: center; gap: 2px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav__links::-webkit-scrollbar { display: none; }
+.nav__link {
+  color: var(--ink); padding: 8px 12px;
+  font-size: 15px; font-weight: 500; border-radius: 8px;
+  white-space: nowrap;
+}
+.nav__link:hover { color: var(--accent); }
+.nav__link.is-active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  font-weight: 700;
+}
+.nav__lang {
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--accent); font-family: 'Mukta', sans-serif;
+  font-weight: 600; font-size: 14px;
+  padding: 7px 16px; border-radius: 999px; cursor: pointer;
+  white-space: nowrap; min-height: 36px;
+}
+.nav__lang:hover { border-color: var(--accent); }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 999px;
+  font-family: 'Mukta', sans-serif; font-weight: 600; font-size: 16px;
+  min-height: 44px; box-sizing: border-box; cursor: pointer;
+  border: 0;
+}
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { filter: brightness(1.12); color: #fff; }
+.btn--outline {
+  border: 1.5px solid var(--accent); background: transparent;
+  color: var(--accent);
+}
+.btn--outline:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.btn--gold { background: var(--accent2); color: #fff; }
+.btn--gold:hover { filter: brightness(1.12); color: #fff; }
+.btn--sm { padding: 12px 26px; font-size: 15.5px; }
+
+/* ==========================================================================
+   Kickers & titles
+   ========================================================================== */
+
+.kicker {
+  margin: 0 0 10px;
+  font-size: 13.5px; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 600; color: var(--accent2);
+}
+.section-title {
+  margin: 0 0 18px;
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-weight: 400; font-size: clamp(32px, 5vw, 46px);
+}
+.section-rule {
+  width: 64px; height: 3px; background: var(--accent);
+  margin-bottom: 34px;
+}
+.section { max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) 20px 0; position: relative; }
+
+/* ==========================================================================
+   Hero — home
+   ========================================================================== */
+
+.hero { position: relative; overflow: hidden; }
+.hero__deco { position: absolute; pointer-events: none; }
+.hero__deco--paisley { top: -20px; right: -30px; width: min(320px, 42vw); opacity: .10; transform: rotate(8deg); }
+.hero__deco--quill { bottom: 80px; left: -40px; width: 200px; opacity: .06; }
+
+.hero__grid {
+  max-width: 1160px; margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) 20px clamp(40px, 6vw, 72px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  position: relative;
+}
+.hero__name {
+  margin: 0 0 20px;
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-weight: 400; font-size: clamp(42px, 7vw, 72px); line-height: 1.12;
+}
+.hero__tagline {
+  margin: 0 0 26px;
+  font-size: clamp(17px, 2.2vw, 20px); color: var(--muted);
+  max-width: 46ch;
+}
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+.hero__meta {
+  display: flex; flex-wrap: wrap; gap: 10px 22px;
+  color: var(--muted); font-size: 15px;
+}
+.hero__meta a, .hero__meta span { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.hero__meta a:hover { color: var(--accent); }
+.hero__meta i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent2); display: inline-block;
+}
+
+.hero__portrait { display: flex; justify-content: center; }
+.hero__portrait-inner { position: relative; width: min(380px, 86vw); }
+.hero__portrait-bg {
+  position: absolute; inset: auto 0 0 0; height: 88%;
+  border-radius: 999px 999px 26px 26px;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--accent) 16%, var(--bg)),
+    color-mix(in srgb, var(--accent2) 22%, var(--bg)));
+  border: 1px solid var(--line);
+}
+.hero__portrait img {
+  position: relative; display: block; width: 100%;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, .18));
+}
+.hero__badge {
+  position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 9px 20px; white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .10);
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13.5px; font-weight: 600;
+}
+.hero__badge i { color: var(--accent2); font-size: 15px; font-style: normal; }
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+/* On mobile (single-column stack), show the Personal Details panel
+   above the About text. */
+@media (max-width: 640px) {
+  .about__grid > :nth-child(2) { order: -1; }
+}
+.about__lead { margin: 0 0 26px; font-size: clamp(17px, 2.1vw, 19px); line-height: 1.85; }
+.about h3 {
+  margin: 0 0 10px;
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-weight: 400; font-size: 23px; color: var(--accent);
+}
+.about p { margin: 0 0 26px; color: var(--muted); line-height: 1.85; }
+.about blockquote {
+  margin: 0 0 26px; padding: 18px 24px;
+  border-left: 3px solid var(--accent2);
+  background: color-mix(in srgb, var(--accent2) 7%, transparent);
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 20px; font-style: italic;
+  border-radius: 0 12px 12px 0;
+}
+
+.info-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 26px 26px 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .05);
+}
+.info-card h3 {
+  margin: 0 0 16px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: 21px; display: flex; align-items: center; gap: 10px;
+  color: var(--ink);
+}
+.info-card h3 i {
+  width: 8px; height: 8px; border-radius: 2px;
+  background: var(--accent2); display: inline-block;
+}
+.info-row { padding: 12px 0 14px; border-top: 1px solid var(--line); }
+.info-row__k {
+  font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent2); font-weight: 600; margin-bottom: 2px;
+}
+.info-row__v { font-size: 15.5px; line-height: 1.6; }
+
+.awards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.award {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px;
+}
+.award:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+}
+.award i { color: var(--accent2); font-size: 17px; line-height: 1.5; flex-shrink: 0; font-style: normal; }
+.award span { font-size: 15px; line-height: 1.6; }
+
+/* ==========================================================================
+   Music
+   ========================================================================== */
+
+.music__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(24px, 3.5vw, 44px); align-items: stretch;
+}
+.music__col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.music__raga {
+  background: var(--dark); color: var(--dark-ink);
+  border-radius: 18px; padding: 28px;
+  position: relative; overflow: hidden; flex: 1;
+}
+.music__raga-deco {
+  position: absolute; top: -30px; right: -12px;
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 150px; opacity: .09; pointer-events: none;
+}
+.music__raga h3 {
+  margin: 0 0 10px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: 30px;
+}
+.music__raga-kicker {
+  font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent2); font-weight: 600; margin-bottom: 8px;
+}
+.music__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.music__card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 16px; padding: 20px;
+}
+.music__card h4 {
+  margin: 0 0 6px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: 19px; color: var(--accent);
+}
+.music__card p { margin: 0; font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+
+.music__yt {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column; min-width: 0;
+}
+.music__yt-thumb {
+  aspect-ratio: 16 / 9;
+  background: radial-gradient(120% 120% at 70% 20%,
+    color-mix(in srgb, var(--accent) 55%, var(--dark)), var(--dark));
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.music__yt-play {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .32);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .3s ease;
+  color: #fff; font-size: 26px; text-decoration: none;
+}
+.music__yt-play span { margin-left: 5px; }
+.music__yt-thumb:hover .music__yt-play { transform: scale(1.08); }
+.music__yt-body {
+  padding: 20px 22px; display: flex; align-items: center;
+  gap: 14px; flex-wrap: wrap;
+}
+.music__yt-body h4 {
+  margin: 0;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400; font-size: 20px;
+}
+.music__yt-body p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+
+.deco { position: absolute; pointer-events: none; }
+
+/* ==========================================================================
+   Books teaser & Books page
+   ========================================================================== */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: clamp(16px, 3vw, 26px);
+  margin-bottom: 28px;
+}
+.book-card {
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform .3s ease;
+  border: 0; background: none; padding: 0; cursor: pointer;
+  text-align: left; font-family: inherit; color: inherit;
+}
+.book-card:hover { transform: translateY(-6px); }
+.book-card__cover {
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .14);
+  aspect-ratio: 3 / 4.3; background: var(--line);
+}
+.book-card__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.book-card__title {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 15.5px; line-height: 1.4; color: var(--ink);
+}
+.book-card__sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+/* Samajbhan teaser band */
+.samaj-teaser {
+  margin-top: clamp(56px, 8vw, 96px);
+  background: color-mix(in srgb, var(--accent2) 9%, var(--bg));
+  color: var(--ink); position: relative; overflow: hidden;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.samaj-teaser__inner {
+  max-width: 1160px; margin: 0 auto;
+  padding: clamp(48px, 7vw, 84px) 20px;
+  position: relative;
+}
+.samaj-teaser__stats { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-bottom: 32px; }
+.samaj-stat__num {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(30px, 4.5vw, 42px); color: var(--accent2); line-height: 1.1;
+}
+.samaj-stat__label { font-size: 14.5px; opacity: .8; }
+
+/* Books page hero + spotlight */
+.page-hero {
+  background: var(--dark); color: var(--dark-ink);
+  position: relative; overflow: hidden;
+}
+.page-hero__inner {
+  max-width: 1160px; margin: 0 auto;
+  padding: clamp(44px, 7vw, 84px) 20px; position: relative;
+}
+.page-hero__back {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent2); font-size: 14.5px; font-weight: 600; margin-bottom: 20px;
+}
+.page-hero__back:hover { color: var(--dark-ink); }
+.page-hero h1 {
+  margin: 0 0 16px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: clamp(38px, 6vw, 60px); line-height: 1.12;
+}
+.page-hero p {
+  margin: 0; font-size: clamp(17px, 2.1vw, 20px);
+  opacity: .88; max-width: 62ch; line-height: 1.8;
+}
+
+.spotlight {
+  position: relative; margin-bottom: 48px;
+}
+.spotlight__card {
+  background: var(--dark); color: var(--dark-ink);
+  border-radius: 22px; padding: clamp(26px, 4vw, 44px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(26px, 4vw, 52px); align-items: center;
+}
+.spotlight__cover-btn {
+  border: 0; padding: 0; background: none; cursor: pointer;
+  transform: rotate(-2deg); transition: transform .4s ease;
+}
+.spotlight__cover-btn:hover { transform: rotate(0deg) scale(1.03); }
+.spotlight__cover-btn img {
+  width: min(250px, 60vw); border-radius: 8px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .45); display: block;
+}
+.spotlight__wrap { display: flex; justify-content: center; }
+.spotlight__badges {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; flex-wrap: wrap;
+}
+.spotlight__badge {
+  display: inline-block; background: var(--accent2); color: #fff;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+}
+.spotlight__counter { font-size: 13px; opacity: .6; font-variant-numeric: tabular-nums; }
+.spotlight h3 {
+  margin: 0 0 6px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: clamp(28px, 4vw, 38px); line-height: 1.25;
+}
+.spotlight__sub { margin: 0 0 16px; opacity: .75; font-size: 16px; }
+.spotlight__brief { margin: 0 0 22px; opacity: .88; line-height: 1.8; font-size: 16px; }
+.spotlight__meta {
+  display: flex; flex-wrap: wrap; gap: 10px 24px;
+  font-size: 14.5px; opacity: .8; margin-bottom: 24px;
+}
+.spotlight__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+  cursor: pointer; font-size: 20px; line-height: 1; z-index: 2;
+}
+.spotlight__nav:hover { background: var(--accent2); color: #fff; border-color: var(--accent2); }
+.spotlight__nav--prev { left: -6px; }
+.spotlight__nav--next { right: -6px; }
+
+.books-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: clamp(18px, 3vw, 30px); padding-bottom: 20px;
+}
+
+/* ==========================================================================
+   Book detail modal
+   ========================================================================== */
+
+.modal {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(20, 14, 8, .62);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.modal__sheet {
+  background: var(--bg);
+  width: min(920px, 100%); max-height: 88vh; overflow-y: auto;
+  border-radius: 22px 22px 0 0;
+  padding: clamp(24px, 4vw, 44px);
+  position: relative;
+  animation: rise .35s ease both;
+}
+.modal__close {
+  position: sticky; top: 0; float: right; z-index: 2;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  width: 44px; height: 44px; border-radius: 50%; font-size: 18px; cursor: pointer;
+}
+.modal__close:hover { border-color: var(--accent); color: var(--accent); }
+.modal__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(24px, 4vw, 44px);
+}
+.modal__cover {
+  width: 100%; max-width: 280px; border-radius: 10px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .25);
+  display: block; margin: 0 auto;
+}
+.modal__facts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 22px auto 0; max-width: 280px;
+}
+.modal__fact {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 14px;
+}
+.modal__fact--wide { grid-column: span 2; }
+.modal__fact-k {
+  font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent2); font-weight: 600;
+}
+.modal__fact-v { font-weight: 600; }
+.modal__fact--wide .modal__fact-v { font-weight: 500; font-size: 14.5px; }
+.modal__title {
+  margin: 0 0 4px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: clamp(26px, 4vw, 34px); line-height: 1.3;
+}
+.modal__sub { margin: 0 0 18px; color: var(--accent2); font-weight: 600; font-size: 15px; }
+.modal__brief { margin: 0 0 20px; line-height: 1.85; font-size: 16.5px; }
+.modal__synopsis-h {
+  margin: 0 0 8px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: 20px; color: var(--accent);
+}
+.modal__synopsis { margin: 0; line-height: 1.85; color: var(--muted); font-size: 15.5px; }
+
+/* ==========================================================================
+   Samajbhan page
+   ========================================================================== */
+
+.samaj-hero-mission {
+  margin: 0 0 34px;
+  font-size: 16px; opacity: .72;
+  max-width: 62ch; line-height: 1.85;
+  border-left: 2px solid var(--accent2); padding-left: 20px;
+}
+.samaj-hero-stats { display: flex; flex-wrap: wrap; gap: 16px 44px; }
+.samaj-hero-stats .samaj-stat__num { color: var(--accent2); font-size: clamp(32px, 5vw, 46px); }
+.samaj-hero-stats .samaj-stat__label { opacity: .82; }
+
+.timeline-section {
+  max-width: 900px; margin: 0 auto; padding: clamp(44px, 6vw, 72px) 20px 0;
+}
+.cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 34px; }
+.cat {
+  border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink);
+  font-family: 'Mukta', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 8px 18px; border-radius: 999px; cursor: pointer;
+  min-height: 38px; transition: all .2s ease;
+}
+.cat:hover { border-color: var(--accent); }
+.cat.is-active { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+.timeline { position: relative; }
+.timeline__spine {
+  position: absolute; left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent2), var(--line));
+}
+.year { position: relative; padding-left: 40px; margin-bottom: 8px; }
+.year__dot {
+  position: absolute; left: 0; top: 6px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.year__label {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 27px; color: var(--accent);
+  margin-bottom: 14px; line-height: 1.2;
+}
+.event {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px 20px; margin-bottom: 14px;
+  transition: box-shadow .3s ease;
+}
+.event:hover { box-shadow: 0 10px 26px rgba(0, 0, 0, .07); }
+.event__row { display: flex; gap: 16px; align-items: flex-start; }
+.event__body { flex: 1; min-width: 0; }
+.event__meta {
+  display: flex; gap: 8px 12px; align-items: center;
+  flex-wrap: wrap; margin-bottom: 6px;
+}
+.event__month {
+  font-size: 12.5px; font-weight: 600; letter-spacing: .06em;
+  color: var(--accent2);
+  background: color-mix(in srgb, var(--accent2) 10%, transparent);
+  padding: 2px 10px; border-radius: 999px;
+}
+.event__cat { font-size: 12px; color: var(--muted); }
+.event__title {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 19.5px; line-height: 1.45;
+}
+.event__desc {
+  margin: 6px 0 0; color: var(--muted);
+  font-size: 15px; line-height: 1.75;
+}
+.event__desc.is-clamped {
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.event__more {
+  border: 0; background: none; padding: 6px 0 0;
+  color: var(--accent); font-family: 'Mukta', sans-serif;
+  font-weight: 600; font-size: 14px; cursor: pointer;
+}
+.event__more:hover { color: var(--accent2); }
+.event__thumb {
+  border: 0; padding: 0; background: none; cursor: pointer; flex-shrink: 0;
+}
+.event__thumb img {
+  width: 76px; height: 76px; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--line); display: block;
+}
+.event__thumb:hover img { opacity: .85; }
+
+/* Gallery */
+.gallery-section {
+  max-width: 1160px; margin: 0 auto;
+  padding: clamp(44px, 6vw, 72px) 20px 0;
+}
+.gallery { columns: 3 220px; column-gap: 14px; }
+.gallery__item {
+  border: 0; padding: 0; background: none; cursor: pointer;
+  width: 100%; margin-bottom: 14px; display: block;
+}
+.gallery__item img {
+  width: 100%; border-radius: 12px; border: 1px solid var(--line);
+  display: block; transition: transform .3s ease;
+}
+.gallery__item:hover img { transform: scale(1.02); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 110;
+  background: rgba(15, 10, 6, .88);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; cursor: zoom-out;
+}
+.lightbox img {
+  max-width: 94vw; max-height: 88vh;
+  border-radius: 12px; box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+  animation: rise .3s ease both;
+}
+.lightbox__close {
+  position: fixed; top: 18px; right: 18px;
+  border: 0; background: rgba(255, 255, 255, .14); color: #fff;
+  width: 44px; height: 44px; border-radius: 50%;
+  font-size: 18px; cursor: pointer;
+}
+.lightbox__close:hover { background: rgba(255, 255, 255, .3); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  background: var(--dark); color: var(--dark-ink);
+  margin-top: clamp(56px, 8vw, 90px);
+}
+.footer__inner {
+  max-width: 1160px; margin: 0 auto;
+  padding: clamp(56px, 8vw, 90px) 20px clamp(28px, 4vw, 40px);
+}
+.footer__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(28px, 4vw, 56px); align-items: start;
+}
+.footer h2 {
+  margin: 0 0 12px;
+  font-family: 'Tiro Devanagari Marathi', serif; font-weight: 400;
+  font-size: clamp(30px, 4.5vw, 42px);
+}
+.footer__lead { margin: 0; opacity: .78; line-height: 1.85; max-width: 44ch; }
+.footer__contacts { display: flex; flex-direction: column; gap: 16px; }
+.footer__contact {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--dark-ink); min-height: 44px;
+}
+.footer__contact:hover { color: var(--accent2); }
+.footer__icon {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--dark-ink) 25%, transparent);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.footer__k {
+  display: block; font-size: 12.5px; letter-spacing: .12em;
+  text-transform: uppercase; opacity: .6;
+}
+.footer__v { font-size: 17px; font-weight: 500; }
+.footer__bar {
+  border-top: 1px solid color-mix(in srgb, var(--dark-ink) 15%, transparent);
+  margin-top: clamp(36px, 5vw, 56px);
+  padding-top: 22px;
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 10px; font-size: 13.5px; opacity: .55;
+}
