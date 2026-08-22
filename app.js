@@ -209,7 +209,6 @@ function renderHome() {
           <div class="hero__portrait-inner">
             <div class="hero__portrait-bg"></div>
             <img src="assets/father-removebg.png" alt="${escapeHTML(t.hero.name)}">
-            <div class="hero__badge"><i>♪</i><span>${escapeHTML(t.hero.badge)}</span></div>
           </div>
         </div>
       </div>
