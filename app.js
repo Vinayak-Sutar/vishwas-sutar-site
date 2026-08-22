@@ -103,7 +103,7 @@ function renderFooter() {
           <p class="footer__lead">${escapeHTML(t.contact.lead)}</p>
         </div>
         <div class="footer__contacts">
-          <a href="tel:+919420353452" class="footer__contact">
+          <a href="https://wa.me/919420353452" target="_blank" rel="noopener" class="footer__contact">
             <span class="footer__icon">✆</span>
             <span>
               <span class="footer__k">${escapeHTML(t.contact.phone)}</span>
@@ -130,7 +130,7 @@ function renderFooter() {
         <span class="footer__dev-k">Developer Contact</span>
         <a href="mailto:sutarvinayak493@gmail.com">sutarvinayak493@gmail.com</a>
         <span class="footer__dev-sep">·</span>
-        <a href="tel:+918767691422">8767691422</a>
+        <a href="https://wa.me/918767691422" target="_blank" rel="noopener">8767691422</a>
       </div>
       <div class="footer__bar">
         <span>© ${year} ${escapeHTML(t.hero.name)}</span>
@@ -207,7 +207,7 @@ function renderHome() {
           </div>
           <div class="hero__meta">
             <span><i></i>${escapeHTML(t.hero.location)}</span>
-            <a href="tel:+919420353452"><i></i>${escapeHTML(t.hero.phone)}</a>
+            <a href="https://wa.me/919420353452" target="_blank" rel="noopener"><i></i>${escapeHTML(t.hero.phone)}</a>
             <a href="https://www.youtube.com/@vishwassutar9868" target="_blank" rel="noopener"><i></i>YouTube</a>
           </div>
         </div>
