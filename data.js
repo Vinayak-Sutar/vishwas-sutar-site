@@ -6,7 +6,7 @@ window.UI = {
     nav: { about: 'परिचय', music: 'संगीत', books: 'ग्रंथसंपदा', samajbhan: 'समाजभान', contact: 'संपर्क' },
     langBtn: 'EN',
     hero: {
-      kicker: 'लेखक · संगीतकार · शिक्षक · प्रशासकीय अधिकारी · समाजसेवक',
+      kicker: 'लेखक · गायक · संगीतकार · प्रशासकीय अधिकारी · समाजसेवक',
       name: 'डॉ. विश्वास सुतार',
       tagline: 'संगीत, शिक्षण, लेखन, व्याख्यान, नवोपक्रम आणि संशोधन अशा क्षेत्रांत सातत्याने सक्रिय',
       location: 'कोल्हापूर, महाराष्ट्र',
@@ -109,7 +109,7 @@ window.UI = {
     nav: { about: 'About', music: 'Music', books: 'Books', samajbhan: 'Samajbhan', contact: 'Contact' },
     langBtn: 'मराठी',
     hero: {
-      kicker: 'Author · Musician · Teacher · Administrative Officer · Social Worker',
+      kicker: 'Author · Singer · Musician · Administrative Officer · Social Worker',
       name: 'Dr. Vishwas Sutar',
       tagline: 'Actively engaged in music, education, writing, lecturing, innovation and research',
       location: 'Kolhapur, Maharashtra',
