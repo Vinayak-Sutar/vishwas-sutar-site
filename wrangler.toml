@@ -4,7 +4,7 @@
 # If your Worker is named differently, change it here — otherwise this
 # will create a NEW Worker instead of updating the existing one.
 
-name = "vishwas-sutar-site"
+name = "vishwas-sutar"
 compatibility_date = "2025-01-01"
 
 # Serve every file in the repo root as a static asset.
