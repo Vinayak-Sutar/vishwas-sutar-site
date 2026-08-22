@@ -126,6 +126,12 @@ function renderFooter() {
           </a>
         </div>
       </div>
+      <div class="footer__dev">
+        <span class="footer__dev-k">${lang === 'mr' ? 'विकसक संपर्क' : 'Developer Contact'}</span>
+        <a href="mailto:sutarvinayak493@gmail.com">sutarvinayak493@gmail.com</a>
+        <span class="footer__dev-sep">·</span>
+        <a href="tel:+918767691422">${lang === 'mr' ? mrDigits('8767691422') : '8767691422'}</a>
+      </div>
       <div class="footer__bar">
         <span>© ${year} ${escapeHTML(t.hero.name)}</span>
         <span>${escapeHTML(t.contact.rights)}</span>
