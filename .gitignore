@@ -18,3 +18,6 @@ build/
 
 # Local-only: Claude Designs source, kept for reference — not deployed
 _legacy/
+
+# Local-only: snapshot of the old React `main` branch for SEO reference
+_main_snapshot/
